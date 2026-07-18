@@ -13,9 +13,7 @@ A modern, responsive **AI-powered dashboard builder** built using **React, TypeS
 
 ## 🌐 Live Demo
 
-> 🔗 Local App: [http://127.0.0.1:5173](http://127.0.0.1:5173)
-
-> 🔗 Builder Page: [http://127.0.0.1:5173/builder](http://127.0.0.1:5173/builder)
+> 🔗 Local App: https://dashcraft-five.vercel.app/
 
 ---
 
@@ -23,19 +21,23 @@ A modern, responsive **AI-powered dashboard builder** built using **React, TypeS
 
 ### 🏠 Home Page
 
-> Add your deployed screenshot here after hosting the project.
+> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1b856792-fc3c-41e8-83dc-ce01e6c66b82" />
+
 
 ### 🧩 Dashboard Builder
 
-> Add a screenshot of the builder canvas here.
+> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/32b5b1ae-7a7c-4a4d-b202-0397e2d37647" />
+
 
 ### 🤖 AI Dashboard Generation
 
-> Add a screenshot of the AI-generated dashboard result here.
+> <img width="432" height="930" alt="image" src="https://github.com/user-attachments/assets/0f165888-1901-47ef-b839-df9b9acb7426" />
+
 
 ### 👁️ Preview Modal
 
-> Add a screenshot of the preview modal here.
+> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/28165455-3bed-41ba-a2fe-40bf960ccaf3" />
+
 
 ---
 
