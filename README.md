@@ -1,27 +1,127 @@
-# DashCraft
+# 📊 DashCraft
 
-DashCraft is a frontend-first React dashboard builder. It lets users describe a dashboard, generate a layout with AI, customize widgets visually, preview the result, and save the current builder state locally.
+A modern, responsive **AI-powered dashboard builder** built using **React, TypeScript, Vite, Tailwind CSS, and OpenAI**. DashCraft lets users generate dashboard layouts from natural language prompts, customize widgets visually, preview dashboards, and save layouts locally.
 
-The main application lives in the `dashcraft/` folder. The project also includes a small local Node API server used only to keep the OpenAI API key out of the browser.
+![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-6-blue?style=for-the-badge&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-8-purple?style=for-the-badge&logo=vite)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css)
+![OpenAI](https://img.shields.io/badge/OpenAI-API-black?style=for-the-badge&logo=openai)
+![Responsive](https://img.shields.io/badge/Responsive-Yes-success?style=for-the-badge)
 
-## Is This A Frontend Project?
+---
 
-Yes. DashCraft is mainly a frontend project built with React, TypeScript, Vite, Tailwind CSS, and Lucide icons.
+## 🌐 Live Demo
 
-There is one lightweight backend file at `dashcraft/server/index.mjs` for AI generation. This is needed because OpenAI API keys should never be exposed in frontend code.
+> 🔗 Local App: [http://127.0.0.1:5173](http://127.0.0.1:5173)
 
-## Features
+> 🔗 Builder Page: [http://127.0.0.1:5173/builder](http://127.0.0.1:5173/builder)
 
-- Landing page for DashCraft
-- Builder page with a dashboard canvas
-- Prompt-based AI dashboard generation
-- Widget library for metrics, charts, donut views, and tables
-- Inspector panel for editing dashboard and widget details
-- Preview modal
-- Local save using `localStorage`
-- OpenAI API integration through a local `/api/generate-dashboard` endpoint
+---
 
-## Tech Stack
+## 📸 Screenshots
+
+### 🏠 Home Page
+
+> Add your deployed screenshot here after hosting the project.
+
+### 🧩 Dashboard Builder
+
+> Add a screenshot of the builder canvas here.
+
+### 🤖 AI Dashboard Generation
+
+> Add a screenshot of the AI-generated dashboard result here.
+
+### 👁️ Preview Modal
+
+> Add a screenshot of the preview modal here.
+
+---
+
+# ✨ Features
+
+### 🏠 Home Page
+
+- Modern hero section
+- Product-style landing page layout
+- Feature highlights
+- How-it-works section
+- Dashboard preview section
+- Responsive navigation
+
+---
+
+### 🧩 Dashboard Builder
+
+- Interactive dashboard canvas
+- Widget selection
+- Widget ordering controls
+- Dashboard title editing
+- Widget title editing
+- Metric and change editing
+- Widget size controls
+- Theme selection
+- Compact and comfortable layout density
+
+---
+
+### 🤖 AI Dashboard Generation
+
+- Prompt-based dashboard generation
+- OpenAI-powered structured dashboard output
+- Generates dashboard title
+- Generates KPI widgets
+- Generates chart widgets
+- Generates table widgets
+- Uses a local backend API to protect the OpenAI API key
+
+---
+
+### 📊 Dashboard Widgets
+
+- KPI metric cards
+- Sparkline previews
+- Bar chart previews
+- Line-style chart previews
+- Donut chart previews
+- Table-style account widgets
+- Accent color system
+- Responsive grid layout
+
+---
+
+### 👁️ Preview
+
+- Full dashboard preview modal
+- Clean presentation mode
+- Close preview action
+- Responsive preview layout
+
+---
+
+### 💾 Local Save
+
+- Save current dashboard state
+- Stores dashboard data using browser LocalStorage
+- Shows saved and unsaved status
+
+---
+
+### 📱 Responsive Design
+
+Fully responsive for:
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile devices
+
+---
+
+# 🛠 Tech Stack
+
+### Frontend
 
 - React
 - TypeScript
@@ -29,54 +129,87 @@ There is one lightweight backend file at `dashcraft/server/index.mjs` for AI gen
 - Tailwind CSS
 - React Router
 - Lucide React
+
+### AI Backend
+
+- Node.js
 - OpenAI Node SDK
-- Node.js local API server
+- Local API route
+- Structured dashboard JSON generation
 
-## Project Structure
+### Storage
 
-```text
-DashCraft/
-  package.json              # Root scripts that proxy into dashcraft/
-  dashcraft/
-    src/                    # React frontend
-    src/pages/Builder/      # Dashboard builder page
-    server/                 # Local AI API server
-    public/                 # Static assets
-    .env.example            # Environment variable template
-    package.json            # App dependencies and scripts
-```
+- Browser LocalStorage
 
-## Getting Started
+---
 
-From the project root:
-
-```powershell
-cd C:\Users\aayan\OneDrive\Desktop\DashCraft
-npm run dev
-```
-
-Then open:
+# 📂 Project Structure
 
 ```text
-http://127.0.0.1:5173/
+dashcraft/
+│
+├── public/
+│   ├── favicon.svg
+│   └── icons.svg
+│
+├── server/
+│   ├── dev.mjs
+│   └── index.mjs
+│
+├── src/
+│   ├── components/
+│   │   ├── home/
+│   │   └── layout/
+│   │
+│   ├── layouts/
+│   │   └── MainLayout.tsx
+│   │
+│   ├── pages/
+│   │   ├── Builder/
+│   │   ├── Dashboard/
+│   │   └── Home/
+│   │
+│   ├── routes/
+│   │   └── AppRouter.tsx
+│   │
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+│
+├── .env.example
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
 ```
 
-The Builder page is available at:
+---
 
-```text
-http://127.0.0.1:5173/builder
+# 🚀 Getting Started
+
+## Install Dependencies
+
+```bash
+npm install
 ```
+
+---
 
 ## Environment Setup
 
-Create a `.env` file inside `dashcraft/`:
+Create a `.env` file:
+
+```bash
+cp .env.example .env
+```
+
+For Windows PowerShell:
 
 ```powershell
-cd C:\Users\aayan\OneDrive\Desktop\DashCraft\dashcraft
 copy .env.example .env
 ```
 
-Then add your API key:
+Then add your OpenAI API key:
 
 ```env
 OPENAI_API_KEY=your_api_key_here
@@ -84,58 +217,146 @@ OPENAI_MODEL=gpt-5.6-luna
 PORT=8787
 ```
 
-Do not commit `.env`. It is ignored by Git.
+> Do not commit `.env`. It is ignored by Git.
 
-## Available Scripts
+---
 
-From the root folder:
+## Run Project
 
-```powershell
-npm run dev       # Starts frontend and local AI API server
-npm run build     # Builds the React app
-npm run lint      # Runs ESLint
-npm run preview   # Runs Vite preview
-```
-
-Inside `dashcraft/`:
-
-```powershell
-npm run dev       # Starts both web and API dev servers
-npm run dev:web   # Starts only Vite frontend
-npm run dev:api   # Starts only the local AI API server
-npm run build     # Type-checks and builds the app
-npm run lint      # Runs ESLint
-```
-
-## AI Generation Flow
-
-1. The user writes a dashboard prompt in the Builder page.
-2. The frontend sends the prompt to `/api/generate-dashboard`.
-3. Vite proxies `/api` requests to the local Node server on port `8787`.
-4. The server calls OpenAI using `OPENAI_API_KEY` from `.env`.
-5. OpenAI returns structured dashboard JSON.
-6. The Builder updates the canvas with generated widgets.
-
-## Troubleshooting
-
-If Generate shows a quota or billing message, the API key is working but the OpenAI project does not currently have available quota. Check billing or usage in the OpenAI dashboard, then try again.
-
-If the page loads but AI generation fails, make sure both servers are running:
-
-```text
-Frontend: http://127.0.0.1:5173
-API:      http://127.0.0.1:8787/api/health
-```
-
-If styles look broken, restart the dev server:
-
-```powershell
+```bash
 npm run dev
 ```
 
-## Security Notes
+Open:
 
-- Never put `OPENAI_API_KEY` in React frontend code.
-- Keep secrets in `dashcraft/.env` only.
-- Do not commit `.env` to GitHub.
-- If an API key was shared publicly or pasted somewhere unsafe, rotate it in the OpenAI dashboard.
+```text
+http://127.0.0.1:5173
+```
+
+---
+
+## Build Project
+
+```bash
+npm run build
+```
+
+---
+
+## Run Lint
+
+```bash
+npm run lint
+```
+
+---
+
+# 🔌 API Routes
+
+### Health Check
+
+```text
+GET /api/health
+```
+
+### Generate Dashboard
+
+```text
+POST /api/generate-dashboard
+```
+
+Request body:
+
+```json
+{
+  "prompt": "Create a SaaS revenue dashboard with MRR, churn, pipeline, and top accounts."
+}
+```
+
+---
+
+# 🔐 Security Notes
+
+- Never place `OPENAI_API_KEY` inside React frontend code.
+- Keep secrets inside `.env`.
+- Do not upload `.env` to GitHub.
+- If an API key is exposed publicly, rotate it from the OpenAI dashboard.
+- The local Node server exists to keep AI calls private and secure.
+
+---
+
+# 💡 Future Improvements
+
+- Drag-and-drop dashboard layout
+- Resizable widgets
+- Real chart library integration
+- Export dashboard as image or PDF
+- User authentication
+- Cloud dashboard saving
+- Dashboard templates
+- Theme customization
+- Team collaboration
+- Shareable dashboard links
+- AI prompt history
+- Database integration
+- Deployment to Vercel or Netlify
+
+---
+
+# 📊 Project Highlights
+
+- ✅ AI-powered dashboard generation
+- ✅ React and TypeScript frontend
+- ✅ Vite development setup
+- ✅ Tailwind CSS styling
+- ✅ Responsive dashboard builder
+- ✅ Local Node API server
+- ✅ OpenAI integration
+- ✅ Protected API key flow
+- ✅ Editable widgets
+- ✅ Preview modal
+- ✅ LocalStorage save
+- ✅ Mobile responsive layout
+- ✅ Modern portfolio-ready UI
+
+---
+
+# 📈 Learning Outcomes
+
+Through this project, I gained practical experience in:
+
+- Building a React + TypeScript frontend
+- Creating responsive layouts with Tailwind CSS
+- Designing dashboard UI components
+- Managing frontend state
+- Building local API routes with Node.js
+- Integrating OpenAI into a web app
+- Protecting API keys using a backend layer
+- Working with structured JSON responses
+- Creating editable UI controls
+- Building portfolio-ready project documentation
+
+---
+
+# 📄 License
+
+This project is developed for educational and portfolio purposes.
+
+---
+
+# 👨‍💻 Author
+
+## Aayan Kumar
+
+**B.Tech Computer Science Engineering**
+
+UI/UX Designer • Frontend Developer • AI & Web Enthusiast
+
+### Connect with me
+
+- GitHub: https://github.com/AayZen
+- LinkedIn: https://linkedin.com/in/aayzen
+
+---
+
+⭐ If you like this project, don't forget to **Star** the repository!
