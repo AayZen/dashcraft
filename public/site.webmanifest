@@ -4,11 +4,16 @@
   "description": "Visual dashboard creation studio for building polished analytics dashboards.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#0F172A",
   "theme_color": "#0F172A",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/favicon.svg?v=3",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/brand/dashcraft-mark.svg?v=3",
       "type": "image/svg+xml",
       "sizes": "any"
     }
