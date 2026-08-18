@@ -17,19 +17,22 @@ DashCraft is a visual dashboard creation studio for building polished analytics 
 
 ### Home Page
 
-> <img width="1920" height="1080" alt="DashCraft Home Page" src="https://github.com/user-attachments/assets/1b856792-fc3c-41e8-83dc-ce01e6c66b82" />
+> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e3fc72d5-5206-4686-9296-548ceb5d63ca" />
 
 ### Dashboard Builder
 
-> <img width="1920" height="1080" alt="DashCraft Dashboard Builder" src="https://github.com/user-attachments/assets/32b5b1ae-7a7c-4a4d-b202-0397e2d37647" />
+> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/08051182-6b6d-428d-93fb-3412f433ba8e" />
+
 
 ### AI Dashboard Generation
 
-> <img width="432" height="930" alt="DashCraft AI Dashboard Generation" src="https://github.com/user-attachments/assets/0f165888-1901-47ef-b839-df9b9acb7426" />
+> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c279e14d-a0d2-4b7c-9fd7-7b6d3b02536e" />
+
 
 ### Preview / Presentation Mode
 
-> <img width="1920" height="1080" alt="DashCraft Preview Presentation Mode" src="https://github.com/user-attachments/assets/28165455-3bed-41ba-a2fe-40bf960ccaf3" />
+> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c41811d6-c407-43b6-bb5a-681967825a91" />
+
 
 ---
 
