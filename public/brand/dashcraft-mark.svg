@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="dc-mark-d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D2FF" />
+      <stop offset="35%" stop-color="#2563EB" />
+      <stop offset="70%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+    <linearGradient id="dc-mark-b1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#00D2FF" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+    <linearGradient id="dc-mark-b2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#60A5FA" />
+    </linearGradient>
+    <linearGradient id="dc-mark-b3" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#A78BFA" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer D Path -->
+  <path
+    d="M 12 16 L 52 16 C 78 16 94 32 94 50 C 94 68 78 84 52 84 L 12 84 L 26 70 L 48 70 C 66 70 76 61 76 50 C 76 39 66 30 48 30 L 26 30 Z"
+    fill="url(#dc-mark-d)"
+  />
+
+  <!-- 3 Inner Data Visualization Bars -->
+  <rect x="32" y="54" width="8" height="16" rx="4" fill="url(#dc-mark-b1)" />
+  <rect x="44" y="42" width="8" height="28" rx="4" fill="url(#dc-mark-b2)" />
+  <rect x="56" y="28" width="8" height="42" rx="4" fill="url(#dc-mark-b3)" />
+</svg>

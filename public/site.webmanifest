@@ -1,0 +1,16 @@
+{
+  "name": "DashCraft",
+  "short_name": "DashCraft",
+  "description": "Visual dashboard creation studio for building polished analytics dashboards.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0F172A",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ]
+}

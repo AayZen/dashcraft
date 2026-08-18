@@ -1,6 +1,8 @@
-# 📊 DashCraft
+# DashCraft — Visual Dashboard Creation Studio
 
-A modern, responsive **AI-powered dashboard builder** built using **React, TypeScript, Vite, Tailwind CSS, and OpenAI**. DashCraft lets users generate dashboard layouts from natural language prompts, customize widgets visually, preview dashboards, and save layouts locally.
+DashCraft is a visual dashboard creation studio for building polished analytics dashboards without fighting with code or rigid templates. Create, customize, save, and present responsive dashboards with editable widgets, templates, and AI-assisted generation.
+
+**Live:** [https://dashcraft-five.vercel.app/](https://dashcraft-five.vercel.app/)
 
 ![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-blue?style=for-the-badge&logo=typescript)
@@ -11,193 +13,135 @@ A modern, responsive **AI-powered dashboard builder** built using **React, TypeS
 
 ---
 
-## 🌐 Live Demo
+## Screenshots
 
-> 🔗 Local App: https://dashcraft-five.vercel.app/
+### Home Page
 
----
+> <img width="1920" height="1080" alt="DashCraft Home Page" src="https://github.com/user-attachments/assets/1b856792-fc3c-41e8-83dc-ce01e6c66b82" />
 
-## 📸 Screenshots
+### Dashboard Builder
 
-### 🏠 Home Page
+> <img width="1920" height="1080" alt="DashCraft Dashboard Builder" src="https://github.com/user-attachments/assets/32b5b1ae-7a7c-4a4d-b202-0397e2d37647" />
 
-> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1b856792-fc3c-41e8-83dc-ce01e6c66b82" />
+### AI Dashboard Generation
 
+> <img width="432" height="930" alt="DashCraft AI Dashboard Generation" src="https://github.com/user-attachments/assets/0f165888-1901-47ef-b839-df9b9acb7426" />
 
-### 🧩 Dashboard Builder
+### Preview / Presentation Mode
 
-> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/32b5b1ae-7a7c-4a4d-b202-0397e2d37647" />
-
-
-### 🤖 AI Dashboard Generation
-
-> <img width="432" height="930" alt="image" src="https://github.com/user-attachments/assets/0f165888-1901-47ef-b839-df9b9acb7426" />
-
-
-### 👁️ Preview Modal
-
-> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/28165455-3bed-41ba-a2fe-40bf960ccaf3" />
-
+> <img width="1920" height="1080" alt="DashCraft Preview Presentation Mode" src="https://github.com/user-attachments/assets/28165455-3bed-41ba-a2fe-40bf960ccaf3" />
 
 ---
 
-# ✨ Features
+## Core Capabilities
 
-### 🏠 Home Page
-
-- Modern hero section
-- Product-style landing page layout
-- Feature highlights
-- How-it-works section
-- Dashboard preview section
-- Responsive navigation
-
----
-
-### 🧩 Dashboard Builder
-
-- Interactive dashboard canvas
-- Widget selection
-- Widget ordering controls
-- Dashboard title editing
-- Widget title editing
-- Metric and change editing
-- Widget size controls
-- Theme selection
-- Compact and comfortable layout density
+- **Visual dashboard builder** — 3-zone studio layout with widget library, interactive canvas, and property inspector
+- **Editable dashboard widgets** — KPI metric cards, bar charts, line/spline charts, area charts, donut charts, data tables, progress bars, and gauge widgets
+- **AI-assisted dashboard generation** — Describe your dashboard in natural language; DashCraft generates structured layouts using the OpenAI API through a secure backend proxy
+- **Offline dashboard synthesis** — Built-in fallback synthesizer generates demo dashboards locally when the OpenAI API is unavailable, clearly labeled as "Synthesized Demo"
+- **Dashboard templates** — Production-ready starter templates for SaaS, E-Commerce, DevOps, Marketing, Product Analytics, Finance, and Customer Support
+- **LocalStorage persistence** — All dashboards save directly in the browser with versioned autosave
+- **Undo/redo history** — Full history stack with keyboard shortcuts (⌘Z, ⌘⇧Z)
+- **Responsive layouts** — 12-column responsive grid with desktop, tablet, and mobile viewport support
+- **Presentation/preview mode** — Full-screen dashboard presentation with viewport simulation and theme switching
+- **Keyboard-first workflow** — Global command palette (⌘K) for adding widgets, switching themes, and exporting
+- **Light/dark/system themes** — Zero-flash theme initialization with system preference detection
 
 ---
 
-### 🤖 AI Dashboard Generation
+## AI Generation
 
-- Prompt-based dashboard generation
-- OpenAI-powered structured dashboard output
-- Generates dashboard title
-- Generates KPI widgets
-- Generates chart widgets
-- Generates table widgets
-- Uses a local backend API to protect the OpenAI API key
+DashCraft includes two distinct generation modes:
+
+1. **AI Generated** — Uses the OpenAI API (via a secure Node.js backend proxy) to generate dashboard layouts from natural language prompts. The API key is never exposed to the frontend.
+2. **Synthesized Demo** — An offline fallback that generates demo dashboard data locally without calling any external API. This is clearly labeled as "Synthesized Demo" in the UI to distinguish it from actual AI generation.
 
 ---
 
-### 📊 Dashboard Widgets
-
-- KPI metric cards
-- Sparkline previews
-- Bar chart previews
-- Line-style chart previews
-- Donut chart previews
-- Table-style account widgets
-- Accent color system
-- Responsive grid layout
-
----
-
-### 👁️ Preview
-
-- Full dashboard preview modal
-- Clean presentation mode
-- Close preview action
-- Responsive preview layout
-
----
-
-### 💾 Local Save
-
-- Save current dashboard state
-- Stores dashboard data using browser LocalStorage
-- Shows saved and unsaved status
-
----
-
-### 📱 Responsive Design
-
-Fully responsive for:
-
-- Desktop
-- Laptop
-- Tablet
-- Mobile devices
-
----
-
-# 🛠 Tech Stack
+## Technology Stack
 
 ### Frontend
-
-- React
+- React 19
 - TypeScript
 - Vite
-- Tailwind CSS
+- Tailwind CSS 4
 - React Router
-- Lucide React
+- Lucide React (icons)
+- SVG-based visualization rendering
 
-### AI Backend
-
+### Backend (AI Proxy)
 - Node.js
 - OpenAI Node SDK
-- Local API route
-- Structured dashboard JSON generation
+- Local API route (`/api/generate-dashboard`)
+- Structured JSON dashboard generation
 
 ### Storage
-
-- Browser LocalStorage
+- Browser LocalStorage (versioned autosave)
 
 ---
 
-# 📂 Project Structure
+## Project Structure
 
 ```text
 dashcraft/
-│
 ├── public/
+│   ├── brand/           # Logo SVGs, creator images, OG image
 │   ├── favicon.svg
-│   └── icons.svg
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   ├── llms.txt
+│   └── site.webmanifest
 │
 ├── server/
-│   ├── dev.mjs
-│   └── index.mjs
+│   ├── dev.mjs          # Combined dev server (Vite + API)
+│   └── index.mjs        # API server (OpenAI proxy)
 │
 ├── src/
 │   ├── components/
-│   │   ├── home/
-│   │   └── layout/
+│   │   ├── about/       # Creator card
+│   │   ├── brand/       # Logo components
+│   │   ├── builder/     # Dashboard editor components
+│   │   ├── common/      # Modal, SEO, social icons
+│   │   ├── creator/     # Creator profile
+│   │   ├── home/        # Hero, Features, HowItWorks
+│   │   ├── layout/      # AppNavbar, Footer
+│   │   └── preview/     # PreviewMode
 │   │
-│   ├── layouts/
-│   │   └── MainLayout.tsx
+│   ├── constants/       # Creator info
+│   ├── data/            # SEO metadata, structured data
+│   ├── layouts/         # MainLayout, AppShell
 │   │
 │   ├── pages/
+│   │   ├── About/
 │   │   ├── Builder/
-│   │   ├── Dashboard/
-│   │   └── Home/
+│   │   ├── Dashboards/
+│   │   ├── Home/
+│   │   ├── NotFound/
+│   │   └── Templates/
 │   │
-│   ├── routes/
-│   │   └── AppRouter.tsx
-│   │
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── index.css
+│   ├── routes/          # AppRouter
+│   ├── services/        # Storage, templates, AI generation
+│   ├── store/           # State management
+│   ├── types/           # TypeScript types
+│   └── utils/           # Utility functions
 │
-├── .env.example
+├── vercel.json          # Vercel SPA config + headers
 ├── package.json
 ├── tsconfig.json
-├── vite.config.ts
-└── README.md
+└── vite.config.ts
 ```
 
 ---
 
-# 🚀 Getting Started
+## Getting Started
 
-## Install Dependencies
+### Install Dependencies
 
 ```bash
 npm install
 ```
 
----
-
-## Environment Setup
+### Environment Setup
 
 Create a `.env` file:
 
@@ -205,47 +149,31 @@ Create a `.env` file:
 cp .env.example .env
 ```
 
-For Windows PowerShell:
-
-```powershell
-copy .env.example .env
-```
-
 Then add your OpenAI API key:
 
 ```env
 OPENAI_API_KEY=your_api_key_here
-OPENAI_MODEL=gpt-5.6-luna
+OPENAI_MODEL=gpt-4o
 PORT=8787
 ```
 
-> Do not commit `.env`. It is ignored by Git.
+> The `.env` file is gitignored. Never commit API keys to the repository.
 
----
-
-## Run Project
+### Run Locally
 
 ```bash
 npm run dev
 ```
 
-Open:
+Opens at: `http://127.0.0.1:5173`
 
-```text
-http://127.0.0.1:5173
-```
-
----
-
-## Build Project
+### Build for Production
 
 ```bash
 npm run build
 ```
 
----
-
-## Run Lint
+### Lint
 
 ```bash
 npm run lint
@@ -253,17 +181,17 @@ npm run lint
 
 ---
 
-# 🔌 API Routes
+## API Routes
 
 ### Health Check
 
-```text
+```
 GET /api/health
 ```
 
 ### Generate Dashboard
 
-```text
+```
 POST /api/generate-dashboard
 ```
 
@@ -277,87 +205,37 @@ Request body:
 
 ---
 
-# 🔐 Security Notes
+## Security
 
-- Never place `OPENAI_API_KEY` inside React frontend code.
-- Keep secrets inside `.env`.
-- Do not upload `.env` to GitHub.
-- If an API key is exposed publicly, rotate it from the OpenAI dashboard.
-- The local Node server exists to keep AI calls private and secure.
-
----
-
-# 💡 Future Improvements
-
-- Drag-and-drop dashboard layout
-- Resizable widgets
-- Real chart library integration
-- Export dashboard as image or PDF
-- User authentication
-- Cloud dashboard saving
-- Dashboard templates
-- Theme customization
-- Team collaboration
-- Shareable dashboard links
-- AI prompt history
-- Database integration
-- Deployment to Vercel or Netlify
+- The OpenAI API key is stored in `.env` and accessed only by the Node.js backend proxy.
+- The frontend never has access to the API key.
+- If a key is accidentally exposed, rotate it immediately from the OpenAI dashboard.
+- All dashboard data is stored locally in the browser — nothing is uploaded to external servers.
 
 ---
 
-# 📊 Project Highlights
+## Deployment
 
-- ✅ AI-powered dashboard generation
-- ✅ React and TypeScript frontend
-- ✅ Vite development setup
-- ✅ Tailwind CSS styling
-- ✅ Responsive dashboard builder
-- ✅ Local Node API server
-- ✅ OpenAI integration
-- ✅ Protected API key flow
-- ✅ Editable widgets
-- ✅ Preview modal
-- ✅ LocalStorage save
-- ✅ Mobile responsive layout
-- ✅ Modern portfolio-ready UI
+DashCraft is deployed on [Vercel](https://vercel.com). The `vercel.json` configuration handles SPA client-side routing and static asset caching.
 
 ---
 
-# 📈 Learning Outcomes
+## Author
 
-Through this project, I gained practical experience in:
+### Aayan Kumar
 
-- Building a React + TypeScript frontend
-- Creating responsive layouts with Tailwind CSS
-- Designing dashboard UI components
-- Managing frontend state
-- Building local API routes with Node.js
-- Integrating OpenAI into a web app
-- Protecting API keys using a backend layer
-- Working with structured JSON responses
-- Creating editable UI controls
-- Building portfolio-ready project documentation
+Cloud Computing / Web Development / UI/UX Design
+B.Tech Computer Science & Engineering candidate at Lovely Professional University
+
+- GitHub: [https://github.com/AayZen](https://github.com/AayZen)
+- LinkedIn: [https://linkedin.com/in/aayzen](https://linkedin.com/in/aayzen)
+- Portfolio: [https://aayan-kumar-portfolio.vercel.app/](https://aayan-kumar-portfolio.vercel.app/)
 
 ---
 
-# 📄 License
+## License
 
 This project is developed for educational and portfolio purposes.
-
----
-
-# 👨‍💻 Author
-
-## Aayan Kumar
-
-**B.Tech Computer Science Engineering**
-
-UI/UX Designer • Frontend Developer • AI & Web Enthusiast
-
-### Connect with me
-
-- GitHub: https://github.com/AayZen
-- LinkedIn: https://linkedin.com/in/aayzen
 
 ---
 

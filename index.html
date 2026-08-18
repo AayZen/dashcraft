@@ -2,11 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>dashcraft</title>
+
+    <!-- Primary SEO Meta (defaults — overridden per route by SEO component) -->
+    <title>DashCraft — Visual Dashboard Builder & Analytics Dashboard Studio</title>
+    <meta name="description" content="Build polished analytics dashboards visually with DashCraft. Create, customize, save, and present responsive dashboards with editable widgets, templates, and AI-assisted generation." />
+    <meta name="author" content="Aayan Kumar" />
+    <meta name="theme-color" content="#0F172A" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph (defaults — overridden per route by SEO component) -->
+    <meta property="og:title" content="DashCraft — Visual Dashboard Builder & Analytics Dashboard Studio" />
+    <meta property="og:description" content="Build polished analytics dashboards visually with DashCraft. Create, customize, save, and present responsive dashboards with editable widgets, templates, and AI-assisted generation." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dashcraft-five.vercel.app/" />
+    <meta property="og:image" content="https://dashcraft-five.vercel.app/brand/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="DashCraft" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X Card (defaults — overridden per route by SEO component) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DashCraft — Visual Dashboard Builder & Analytics Dashboard Studio" />
+    <meta name="twitter:description" content="Build polished analytics dashboards visually with DashCraft." />
+    <meta name="twitter:image" content="https://dashcraft-five.vercel.app/brand/og-image.jpg" />
+
+    <!-- Zero-Flash Theme Initialization -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("dashcraft:theme");
+          if (!saved) {
+            var legacy = localStorage.getItem("dashcraft:v1");
+            if (legacy) {
+              var parsed = JSON.parse(legacy);
+              if (parsed && parsed.theme) saved = parsed.theme;
+            }
+          }
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var isDark = saved === "dark" || (saved === "system" && prefersDark) || (!saved && prefersDark);
+          if (isDark) {
+            document.documentElement.classList.add("dark");
+            document.documentElement.classList.remove("light");
+            document.documentElement.style.colorScheme = "dark";
+          } else {
+            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
+            document.documentElement.style.colorScheme = "light";
+          }
+          document.documentElement.setAttribute("data-theme", saved || "system");
+        } catch (e) {}
+      })();
+    </script>
   </head>
-  <body>
+  <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,73 +1,72 @@
-import {
-  MessageSquareText,
-  WandSparkles,
-  LayoutDashboard,
-} from "lucide-react";
+import React from "react";
+import { WandSparkles, Sliders, Presentation } from "lucide-react";
 
-const steps = [
-  {
-    icon: MessageSquareText,
-    title: "Describe Your Dashboard",
-    description:
-      "Tell DashCraft what you want in plain English. Example: Create a sales dashboard with revenue charts and KPIs.",
-  },
-  {
-    icon: WandSparkles,
-    title: "AI Generates the Layout",
-    description:
-      "DashCraft converts your prompt into a structured dashboard with charts, cards, tables, and widgets.",
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Customize & Export",
-    description:
-      "Drag, resize, and edit widgets visually. Save your dashboard or export it when you're done.",
-  },
-];
+export const HowItWorks: React.FC = () => {
+  const steps = [
+    {
+      step: "01",
+      icon: WandSparkles,
+      title: "Prompt or Pick a Template",
+      description: "Describe your dashboard requirements in natural language or choose from 8+ production-ready starter templates.",
+    },
+    {
+      step: "02",
+      icon: Sliders,
+      title: "Customize Every Detail",
+      description: "Tweak metrics, change percentage rates, swap chart styles, pick curated accents, and edit data values on the fly.",
+    },
+    {
+      step: "03",
+      icon: Presentation,
+      title: "Preview & Share Instantly",
+      description: "Switch to presentation mode for client reviews, copy presentation links, or export the JSON schema to disk.",
+    },
+  ];
 
-const HowItWorks = () => {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-28">
-      <div className="text-center">
-        <h2 className="text-4xl font-bold">
-          Build Dashboards in 3 Simple Steps
-        </h2>
+    <section className="py-20 border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-950">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-xl mx-auto">
+          <span className="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+            Intuitive Workflow
+          </span>
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mt-2">
+            Build dashboards in 3 fast steps
+          </h2>
+          <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+            From an initial prompt to an interactive analytics studio in seconds.
+          </p>
+        </div>
 
-        <p className="mt-4 text-slate-400">
-          From an idea to a polished dashboard in just a few clicks.
-        </p>
-      </div>
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {steps.map((item) => {
+            const Icon = item.icon;
 
-      <div className="mt-20 grid gap-8 md:grid-cols-3">
-        {steps.map((step, index) => {
-          const Icon = step.icon;
+            return (
+              <div
+                key={item.step}
+                className="relative rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 p-6 shadow-xs"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 dark:bg-cyan-950/50 text-cyan-600 dark:text-cyan-400">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <span className="font-mono text-xs font-bold text-zinc-400 dark:text-zinc-500">
+                    {item.step}
+                  </span>
+                </div>
 
-          return (
-            <div
-              key={step.title}
-              className="relative rounded-2xl border border-slate-800 bg-slate-900/60 p-8"
-            >
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-500/10">
-                <Icon className="h-7 w-7 text-cyan-400" />
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                  {item.description}
+                </p>
               </div>
-
-              <span className="text-sm font-semibold text-cyan-400">
-                Step {index + 1}
-              </span>
-
-              <h3 className="mt-3 text-2xl font-bold">
-                {step.title}
-              </h3>
-
-              <p className="mt-4 text-slate-400">
-                {step.description}
-              </p>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );
 };
-
-export default HowItWorks;

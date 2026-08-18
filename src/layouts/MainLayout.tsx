@@ -1,10 +1,14 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
+import { ToastProvider } from "../hooks/useToast";
 
-const MainLayout = () => {
+const MainLayout: React.FC = () => {
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      <Outlet />
-    </div>
+    <ToastProvider>
+      <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
+        <Outlet />
+      </div>
+    </ToastProvider>
   );
 };
 

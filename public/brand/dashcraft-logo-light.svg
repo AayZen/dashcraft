@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" fill="none">
+  <defs>
+    <linearGradient id="dc-logo-d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D2FF" />
+      <stop offset="35%" stop-color="#2563EB" />
+      <stop offset="70%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+    <linearGradient id="dc-logo-b1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#00D2FF" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+    <linearGradient id="dc-logo-b2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#60A5FA" />
+    </linearGradient>
+    <linearGradient id="dc-logo-b3" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#A78BFA" />
+    </linearGradient>
+    <linearGradient id="dc-craft-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="50%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+  </defs>
+
+  <!-- Logo Mark Group -->
+  <g transform="translate(6, 6) scale(0.68)">
+    <path
+      d="M 12 16 L 52 16 C 78 16 94 32 94 50 C 94 68 78 84 52 84 L 12 84 L 26 70 L 48 70 C 66 70 76 61 76 50 C 76 39 66 30 48 30 L 26 30 Z"
+      fill="url(#dc-logo-d)"
+    />
+    <rect x="32" y="54" width="8" height="16" rx="4" fill="url(#dc-logo-b1)" />
+    <rect x="44" y="42" width="8" height="28" rx="4" fill="url(#dc-logo-b2)" />
+    <rect x="56" y="28" width="8" height="42" rx="4" fill="url(#dc-logo-b3)" />
+  </g>
+
+  <!-- Wordmark Text -->
+  <text x="82" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="800" letter-spacing="-0.03em" fill="#0F172A">
+    Dash<tspan fill="url(#dc-craft-grad)">Craft</tspan>
+  </text>
+  
+  <!-- Tagline -->
+  <text x="83" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="700" letter-spacing="0.22em" fill="#64748B">
+    CRAFT DASHBOARDS VISUALLY.
+  </text>
+</svg>

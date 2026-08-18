@@ -1,9 +1,7 @@
+import { Navigate } from "react-router-dom";
+
 const Dashboard = () => {
-  return (
-    <div className="text-white text-4xl p-10">
-      Dashboard Page
-    </div>
-  );
+  return <Navigate to="/dashboards" replace />;
 };
 
 export default Dashboard;

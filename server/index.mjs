@@ -6,17 +6,33 @@ import OpenAI from "openai";
 loadLocalEnv();
 
 const PORT = Number(process.env.PORT ?? 8787);
-const MODEL = process.env.OPENAI_MODEL ?? "gpt-5.5";
-const accents = ["cyan", "emerald", "violet", "amber", "rose", "sky"];
-const kinds = ["kpi", "line", "bar", "donut", "table"];
-const sizes = ["sm", "md", "lg"];
+const MODEL = process.env.OPENAI_MODEL ?? "gpt-4o-mini";
+const accents = ["cyan", "blue", "emerald", "violet", "amber", "rose", "indigo", "zinc"];
+const kinds = [
+  "kpi",
+  "line",
+  "bar",
+  "area",
+  "donut",
+  "table",
+  "progress",
+  "gauge",
+  "heading",
+  "text",
+  "status",
+  "activity",
+];
+const sizes = ["sm", "md", "lg", "full"];
 
 const dashboardSchema = {
   type: "object",
   additionalProperties: false,
-  required: ["title", "widgets"],
+  required: ["title", "description", "widgets"],
   properties: {
     title: {
+      type: "string",
+    },
+    description: {
       type: "string",
     },
     widgets: {
@@ -33,10 +49,16 @@ const dashboardSchema = {
           title: {
             type: "string",
           },
+          subtitle: {
+            type: "string",
+          },
           metric: {
             type: "string",
           },
           change: {
+            type: "string",
+          },
+          changePeriod: {
             type: "string",
           },
           size: {
@@ -51,6 +73,12 @@ const dashboardSchema = {
             type: "array",
             items: {
               type: "number",
+            },
+          },
+          labels: {
+            type: "array",
+            items: {
+              type: "string",
             },
           },
         },
@@ -83,7 +111,8 @@ const server = createServer(async (request, response) => {
     if (!process.env.OPENAI_API_KEY) {
       sendJson(response, 503, {
         error:
-          "OPENAI_API_KEY is not configured. Create .env from .env.example and restart npm run dev.",
+          "OPENAI_API_KEY is not configured in .env. Falling back to DashCraft Studio Synthesizer.",
+        fallback: true,
       });
       return;
     }
@@ -91,22 +120,27 @@ const server = createServer(async (request, response) => {
     const body = await readJsonBody(request);
     const prompt = String(body.prompt ?? "").trim();
 
-    if (prompt.length < 8) {
+    if (prompt.length < 4) {
       sendJson(response, 400, {
-        error: "Describe the dashboard you want in at least a few words.",
+        error: "Please describe the dashboard you want in a few words.",
       });
       return;
     }
 
     const dashboard = await generateDashboard(prompt);
-    sendJson(response, 200, dashboard);
+    sendJson(response, 200, {
+      ...dashboard,
+      model: MODEL,
+      source: "ai_generated",
+    });
   } catch (error) {
-    console.error(error);
+    console.error("AI Generation Error:", error);
     sendJson(response, 500, {
       error:
         error instanceof Error
           ? error.message
-          : "DashCraft could not generate a dashboard.",
+          : "DashCraft could not generate a dashboard via OpenAI.",
+      fallback: true,
     });
   }
 });
@@ -117,67 +151,81 @@ server.listen(PORT, "127.0.0.1", () => {
 
 async function generateDashboard(prompt) {
   const client = new OpenAI();
-  const result = await client.responses.create({
+  
+  const completion = await client.chat.completions.create({
     model: MODEL,
-    max_output_tokens: 1800,
-    input: [
+    messages: [
       {
-        role: "developer",
+        role: "system",
         content:
-          "You generate polished analytics dashboard layouts for DashCraft. Return only schema-valid JSON. Choose widget titles, metrics, short change labels, sizes, accent colors, and 0-100 chart data that match the user's domain.",
+          "You are DashCraft's expert analytics AI designer. Create cohesive, high-impact, realistic business and engineering dashboards. Return only schema-valid JSON. Include 6 to 8 varied widgets with realistic numbers, percentage changes, labels, and normalized 0-100 chart data arrays.",
       },
       {
         role: "user",
         content: prompt,
       },
     ],
-    text: {
-      format: {
-        type: "json_schema",
+    response_format: {
+      type: "json_schema",
+      json_schema: {
         name: "dashcraft_dashboard",
         strict: true,
         schema: dashboardSchema,
       },
     },
+    max_tokens: 2400,
   });
 
-  const raw = result.output_text;
+  const raw = completion.choices[0]?.message?.content;
 
   if (!raw) {
-    throw new Error("The model returned an empty dashboard.");
+    throw new Error("OpenAI returned an empty response.");
   }
 
   const parsed = JSON.parse(raw);
 
   return {
-    title: cleanText(parsed.title, "Untitled Dashboard", 80),
-    widgets: parsed.widgets
-      .slice(0, 8)
+    title: cleanText(parsed.title, "Analytics Dashboard", 80),
+    description: cleanText(parsed.description, `Generated dashboard for: ${prompt}`, 180),
+    widgets: (parsed.widgets || [])
+      .slice(0, 10)
       .map((widget, index) => sanitizeWidget(widget, index)),
   };
 }
 
 function sanitizeWidget(widget, index) {
   const kind = kinds.includes(widget.kind) ? widget.kind : "kpi";
-  const size = sizes.includes(widget.size) ? widget.size : kind === "kpi" ? "sm" : "md";
+  const size = sizes.includes(widget.size)
+    ? widget.size
+    : kind === "kpi" || kind === "progress" || kind === "gauge"
+    ? "sm"
+    : "md";
   const accent = accents.includes(widget.accent) ? widget.accent : accents[index % accents.length];
   const data = Array.isArray(widget.data)
     ? widget.data
         .map((value) => Number(value))
         .filter(Number.isFinite)
-        .slice(0, 10)
+        .slice(0, 12)
         .map((value) => Math.max(0, Math.min(100, Math.round(value))))
-    : [];
+    : [28, 45, 68, 84];
+
+  const labels = Array.isArray(widget.labels)
+    ? widget.labels.map((l) => String(l).slice(0, 20))
+    : ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6"];
 
   return {
-    id: `ai-${index}-${kind}`,
+    id: `ai-${Date.now()}-${index}-${kind}`,
     kind,
-    title: cleanText(widget.title, "Untitled Widget", 48),
+    title: cleanText(widget.title, "Metric Overview", 50),
+    subtitle: widget.subtitle ? cleanText(widget.subtitle, "", 60) : undefined,
     metric: cleanText(widget.metric, "0", 24),
-    change: cleanText(widget.change, "+0%", 24),
+    change: cleanText(widget.change, "+0%", 20),
+    changePeriod: widget.changePeriod ? cleanText(widget.changePeriod, "vs last month", 30) : "vs last month",
+    changeType: "increase",
     size,
     accent,
     data: data.length >= 3 ? data : [24, 48, 72],
+    labels,
   };
 }
 
@@ -193,8 +241,8 @@ function readJsonBody(request) {
     request.on("data", (chunk) => {
       body += chunk;
 
-      if (body.length > 16_384) {
-        rejectBody(new Error("Request body is too large."));
+      if (body.length > 32_768) {
+        rejectBody(new Error("Request body exceeds size limit."));
         request.destroy();
       }
     });
@@ -215,7 +263,7 @@ function sendJson(response, status, payload) {
   response.writeHead(status, {
     "Access-Control-Allow-Headers": "content-type",
     "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
-    "Access-Control-Allow-Origin": "http://127.0.0.1:5173",
+    "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
   });
 

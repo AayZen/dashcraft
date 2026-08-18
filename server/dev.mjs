@@ -5,9 +5,11 @@ const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 const processes = [
   spawn(npmCommand, ["run", "dev:api"], {
     stdio: "inherit",
+    shell: true,
   }),
   spawn(npmCommand, ["run", "dev:web"], {
     stdio: "inherit",
+    shell: true,
   }),
 ];
 
