@@ -97,20 +97,22 @@ export const SEO: React.FC<SEOProps> = ({
     setMeta("name", "twitter:image", ogImageUrl);
 
     // JSON-LD structured data
-    // Remove previous dynamic JSON-LD
+    // Remove previous static or dynamic JSON-LD scripts to prevent duplication
     document
-      .querySelectorAll('script[data-seo="jsonld"]')
+      .querySelectorAll('script[type="application/ld+json"]')
       .forEach((el) => el.remove());
 
     if (schema) {
       const schemas = Array.isArray(schema) ? schema : [schema];
-      schemas.forEach((s) => {
-        const script = document.createElement("script");
-        script.type = "application/ld+json";
-        script.dataset.seo = "jsonld";
-        script.textContent = JSON.stringify(s);
-        document.head.appendChild(script);
-      });
+      const jsonLdData = {
+        "@context": "https://schema.org",
+        "@graph": schemas,
+      };
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.dataset.seo = "jsonld";
+      script.textContent = JSON.stringify(jsonLdData);
+      document.head.appendChild(script);
     }
 
     // Cleanup on unmount: remove only the dynamic tags we created

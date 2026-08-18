@@ -1,68 +1,87 @@
 /**
  * Centralized SEO metadata and JSON-LD structured data for each public route.
  *
- * All structured data matches visible, truthful page content.
- * No fake ratings, reviews, users, awards, pricing, companies, or professional claims.
+ * Designed for Entity SEO & LLM Search Disambiguation:
+ * - Establishes DashCraft as a distinct software entity (Visual Dashboard Creation Studio)
+ * - Links creator Aayan Kumar with authoritative sameAs profiles (LinkedIn, GitHub, Portfolio)
+ * - Links DashCraft with the official GitHub repository
+ * - Uses stable @id references across WebSite, SoftwareApplication, Person, and WebPage nodes
+ * - Strictly matches visible, truthful page content (no fake ratings, awards, or pricing claims)
  */
 
 const CANONICAL_ORIGIN = "https://dashcraft-five.vercel.app";
+const GITHUB_REPO = "https://github.com/AayZen/dashcraft";
+const CREATOR_PORTFOLIO = "https://aayan-kumar-portfolio.vercel.app/";
+const CREATOR_LINKEDIN = "https://www.linkedin.com/in/aayzen/";
+const CREATOR_GITHUB = "https://github.com/AayZen";
+
+/* ───── Authoritative Entity Definitions ───── */
+
+export const CREATOR_ENTITY = {
+  "@type": "Person",
+  "@id": `${CANONICAL_ORIGIN}/#creator`,
+  name: "Aayan Kumar",
+  jobTitle: "Cloud Computing / Web Development / UI/UX Design",
+  url: CREATOR_PORTFOLIO,
+  sameAs: [
+    CREATOR_LINKEDIN,
+    CREATOR_GITHUB,
+    CREATOR_PORTFOLIO,
+  ],
+};
+
+export const WEBSITE_ENTITY = {
+  "@type": "WebSite",
+  "@id": `${CANONICAL_ORIGIN}/#website`,
+  name: "DashCraft",
+  alternateName: "DashCraft — Visual Dashboard Creation Studio",
+  url: CANONICAL_ORIGIN,
+  description:
+    "DashCraft is a visual dashboard creation studio for building polished analytics dashboards without fighting with code or rigid templates.",
+  creator: { "@id": `${CANONICAL_ORIGIN}/#creator` },
+  publisher: { "@id": `${CANONICAL_ORIGIN}/#creator` },
+  sameAs: [GITHUB_REPO],
+  inLanguage: "en-US",
+};
+
+export const SOFTWARE_APPLICATION_ENTITY = {
+  "@type": "SoftwareApplication",
+  "@id": `${CANONICAL_ORIGIN}/#softwareapplication`,
+  name: "DashCraft",
+  alternateName: "DashCraft Dashboard Studio",
+  applicationCategory: "DesignApplication",
+  applicationSubCategory: "Analytics Dashboard Builder",
+  operatingSystem: "Web Browser",
+  url: CANONICAL_ORIGIN,
+  description:
+    "DashCraft is a visual dashboard creation studio by Aayan Kumar for building polished analytics dashboards with editable widgets, templates, and AI-assisted generation.",
+  creator: { "@id": `${CANONICAL_ORIGIN}/#creator` },
+  author: { "@id": `${CANONICAL_ORIGIN}/#creator` },
+  isPartOf: { "@id": `${CANONICAL_ORIGIN}/#website` },
+  sameAs: [GITHUB_REPO],
+};
 
 /* ───── Home Page ───── */
 export const homeSEO = {
-  title: "DashCraft — Visual Dashboard Builder & Analytics Dashboard Studio",
+  title: "DashCraft — Visual Dashboard Creation Studio",
   description:
-    "Build polished analytics dashboards visually with DashCraft. Create, customize, save, and present responsive dashboards with editable widgets, templates, and AI-assisted generation.",
+    "DashCraft is a visual dashboard creation studio for building polished analytics dashboards without fighting with code or rigid templates. Created by Aayan Kumar.",
   canonicalPath: "/",
   ogType: "website",
   schema: [
-    // WebSite
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: "DashCraft",
-      url: CANONICAL_ORIGIN,
-      description:
-        "DashCraft is a visual dashboard creation studio for building polished analytics dashboards without fighting with code or rigid templates.",
-      creator: {
-        "@type": "Person",
-        name: "Aayan Kumar",
-        url: "https://aayan-kumar-portfolio.vercel.app/",
-        sameAs: [
-          "https://www.linkedin.com/in/aayzen/",
-          "https://github.com/AayZen",
-        ],
-      },
-    },
-    // SoftwareApplication
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      name: "DashCraft",
-      url: CANONICAL_ORIGIN,
-      applicationCategory: "DesignApplication",
-      operatingSystem: "Web",
-      description:
-        "Visual dashboard creation studio for building polished analytics dashboards with editable widgets, templates, and AI-assisted generation.",
-      creator: {
-        "@type": "Person",
-        name: "Aayan Kumar",
-      },
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-      },
-    },
+    CREATOR_ENTITY,
+    WEBSITE_ENTITY,
+    SOFTWARE_APPLICATION_ENTITY,
     // BreadcrumbList
     {
-      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id": `${CANONICAL_ORIGIN}/#breadcrumb`,
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: CANONICAL_ORIGIN + "/",
+          item: `${CANONICAL_ORIGIN}/`,
         },
       ],
     },
@@ -73,40 +92,39 @@ export const homeSEO = {
 export const templatesSEO = {
   title: "Dashboard Templates — DashCraft",
   description:
-    "Explore customizable analytics dashboard templates for SaaS, e-commerce, DevOps, marketing, finance, product analytics, and customer support.",
+    "Explore customizable analytics dashboard templates for SaaS, e-commerce, DevOps, marketing, finance, product analytics, and customer support in DashCraft.",
   canonicalPath: "/templates",
   ogType: "website",
   schema: [
-    // WebPage
+    CREATOR_ENTITY,
     {
-      "@context": "https://schema.org",
       "@type": "CollectionPage",
-      name: "Dashboard Templates",
-      url: CANONICAL_ORIGIN + "/templates",
+      "@id": `${CANONICAL_ORIGIN}/templates#collectionpage`,
+      name: "Dashboard Templates — DashCraft",
+      url: `${CANONICAL_ORIGIN}/templates`,
       description:
         "Customizable analytics dashboard templates for SaaS, e-commerce, DevOps, marketing, finance, product analytics, and customer support.",
-      isPartOf: {
-        "@type": "WebSite",
-        name: "DashCraft",
-        url: CANONICAL_ORIGIN,
-      },
+      isPartOf: { "@id": `${CANONICAL_ORIGIN}/#website` },
+      about: { "@id": `${CANONICAL_ORIGIN}/#softwareapplication` },
+      creator: { "@id": `${CANONICAL_ORIGIN}/#creator` },
+      inLanguage: "en-US",
     },
     // BreadcrumbList
     {
-      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id": `${CANONICAL_ORIGIN}/templates#breadcrumb`,
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: CANONICAL_ORIGIN + "/",
+          item: `${CANONICAL_ORIGIN}/`,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Templates",
-          item: CANONICAL_ORIGIN + "/templates",
+          item: `${CANONICAL_ORIGIN}/templates`,
         },
       ],
     },
@@ -115,54 +133,42 @@ export const templatesSEO = {
 
 /* ───── About Page ───── */
 export const aboutSEO = {
-  title: "About DashCraft — Created by Aayan Kumar",
+  title: "About DashCraft — Visual Dashboard Creation Studio by Aayan Kumar",
   description:
     "Learn about DashCraft, a visual dashboard creation studio built by Aayan Kumar using React, TypeScript, and modern web technologies.",
   canonicalPath: "/about",
   ogType: "website",
   schema: [
-    // AboutPage
+    CREATOR_ENTITY,
     {
-      "@context": "https://schema.org",
       "@type": "AboutPage",
-      name: "About DashCraft",
-      url: CANONICAL_ORIGIN + "/about",
+      "@id": `${CANONICAL_ORIGIN}/about#aboutpage`,
+      name: "About DashCraft — Visual Dashboard Creation Studio",
+      url: `${CANONICAL_ORIGIN}/about`,
       description:
         "Learn about DashCraft, a visual dashboard creation studio built by Aayan Kumar using React, TypeScript, and modern web technologies.",
-      isPartOf: {
-        "@type": "WebSite",
-        name: "DashCraft",
-        url: CANONICAL_ORIGIN,
-      },
-    },
-    // Person (Creator)
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      name: "Aayan Kumar",
-      jobTitle: "Cloud Computing / Web Development / UI/UX Design",
-      url: "https://aayan-kumar-portfolio.vercel.app/",
-      sameAs: [
-        "https://www.linkedin.com/in/aayzen/",
-        "https://github.com/AayZen",
-      ],
+      isPartOf: { "@id": `${CANONICAL_ORIGIN}/#website` },
+      about: { "@id": `${CANONICAL_ORIGIN}/#softwareapplication` },
+      mainEntity: { "@id": `${CANONICAL_ORIGIN}/#softwareapplication` },
+      creator: { "@id": `${CANONICAL_ORIGIN}/#creator` },
+      inLanguage: "en-US",
     },
     // BreadcrumbList
     {
-      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id": `${CANONICAL_ORIGIN}/about#breadcrumb`,
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: CANONICAL_ORIGIN + "/",
+          item: `${CANONICAL_ORIGIN}/`,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "About",
-          item: CANONICAL_ORIGIN + "/about",
+          item: `${CANONICAL_ORIGIN}/about`,
         },
       ],
     },

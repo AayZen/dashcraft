@@ -7,11 +7,13 @@ import {
   Cpu,
   ShieldCheck,
   Zap,
+  ExternalLink,
 } from "lucide-react";
 import { CreatorCard } from "../../components/about/CreatorCard";
 import { Footer } from "../../components/layout/Footer";
 import { Logo } from "../../components/brand/Logo";
 import { SEO } from "../../components/common/SEO";
+import { GitHubIcon } from "../../components/common/SocialIcons";
 import { aboutSEO } from "../../data/seoData";
 
 export const About: React.FC = () => {
@@ -35,7 +37,7 @@ export const About: React.FC = () => {
             </h1>
 
             <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-              DashCraft is a visual dashboard creation studio built by Aayan Kumar using React, TypeScript, and modern web technologies.
+              DashCraft is a visual dashboard creation studio built by Aayan Kumar using React, TypeScript, and modern web technologies. It empowers developers and creators to design, customize, and present responsive analytics dashboards without rigid templates.
             </p>
           </div>
         </section>
@@ -125,8 +127,33 @@ export const About: React.FC = () => {
                   <span className="rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-2.5 py-1 text-[11px] font-semibold text-zinc-800 dark:text-zinc-200">
                     Tailwind CSS 4
                   </span>
+                  <span className="rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-2.5 py-1 text-[11px] font-semibold text-zinc-800 dark:text-zinc-200">
+                    React Router
+                  </span>
                 </div>
               </div>
+            </div>
+
+            {/* Official Project & Source Code */}
+            <div className="mt-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
+                  Project Repository &amp; Source Code
+                </h4>
+                <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
+                  DashCraft is open source. View the complete codebase, architecture, and issue tracker on GitHub.
+                </p>
+              </div>
+              <a
+                href="https://github.com/AayZen/dashcraft"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 px-4 py-2 text-xs font-semibold text-zinc-900 dark:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition"
+              >
+                <GitHubIcon size={14} className="text-zinc-900 dark:text-zinc-100" />
+                <span>GitHub Repository</span>
+                <ExternalLink className="h-3 w-3 text-zinc-400" />
+              </a>
             </div>
 
             {/* Launch CTA */}

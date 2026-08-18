@@ -1,64 +1,55 @@
-# DashCraft
+# DashCraft — Visual Dashboard Creation Studio
 
-> Visual dashboard creation studio.
+> DashCraft is a visual dashboard creation studio for building polished analytics dashboards without fighting with code or rigid templates. Created by Aayan Kumar.
 
-## Overview
+## Entity & Product Disambiguation
 
-DashCraft is a visual dashboard creation studio for building polished analytics dashboards without fighting with code or rigid templates. Users can create, customize, save, and present responsive dashboards with editable widgets, templates, and AI-assisted generation.
+- **Product Name**: DashCraft
+- **Product Category**: Visual Analytics Dashboard Creation Studio / Web Application
+- **Canonical Website**: https://dashcraft-five.vercel.app/
+- **Creator**: Aayan Kumar
+- **Official Source Code**: https://github.com/AayZen/dashcraft
+- **Disambiguation Note**: DashCraft is an independent visual analytics and dashboard builder software project. It is not affiliated with any racing games, video games, Minecraft mods, or unrelated projects that share the DashCraft name.
+
+## Public Web Pages
 
 - Homepage: https://dashcraft-five.vercel.app/
-- Templates: https://dashcraft-five.vercel.app/templates
-- About: https://dashcraft-five.vercel.app/about
-- GitHub Repository: https://github.com/AayZen/dashcraft
+- Dashboard Templates: https://dashcraft-five.vercel.app/templates
+- About & Architecture: https://dashcraft-five.vercel.app/about
+- Official Repository: https://github.com/AayZen/dashcraft
 
 ## Core Capabilities
 
-- Visual dashboard builder with a 3-zone studio layout (widget library, canvas, property inspector)
-- Editable dashboard widgets: KPI cards, bar charts, line/spline charts, area charts, donut charts, tables, progress bars, gauges
-- AI-assisted dashboard generation using OpenAI API with structured JSON output
-- Offline dashboard synthesis fallback when the OpenAI API is unavailable
-- Dashboard templates for SaaS, E-Commerce, DevOps, Marketing, Product Analytics, and Finance
-- LocalStorage persistence — all dashboards save locally in the browser
-- Undo/redo history with keyboard shortcuts
-- Responsive dashboard layouts (desktop, tablet, mobile)
-- Presentation/preview mode for clean client presentations
-- Keyboard-first workflow with a command palette (⌘K)
-- Light, dark, and system theme support
+- **Visual Studio Builder**: 3-zone workspace layout featuring a widget library, interactive drag-and-drop canvas with responsive 12-column grid, and real-time property inspector.
+- **Supported Widget Types**: KPI metric cards with sparkline previews, vertical bar charts, smooth spline line charts, gradient area charts, donut/pie charts, tabular data views, percentage progress bars, and circular gauge widgets.
+- **AI-Assisted Dashboard Generation**: Natural language prompt-to-dashboard engine powered by the OpenAI API via a secure backend proxy.
+- **Offline Synthesized Demo Mode**: Built-in offline generation fallback that synthesizes complete dashboard schemas locally when API connectivity is unavailable.
+- **Curated Template Library**: Ready-to-use analytics templates across SaaS Revenue, E-Commerce, DevOps Infrastructure, Marketing & Growth, Product Analytics, Finance & Accounting, and Customer Support.
+- **Local-First Persistence**: All user dashboards, widget properties, and layout configurations persist entirely in browser LocalStorage. No user dashboard data is sent to external databases.
+- **Presentation & Preview Mode**: Clean presentation viewport simulating desktop, tablet, and mobile screens, with dark/light theme switching and JSON schema export.
+- **Command Palette (⌘K / Ctrl+K)**: Keyboard-first navigation, widget insertion, template loading, and action execution.
+- **Zero-Flash Theme Engine**: Seamless dark, light, and system theme synchronization.
 
-## AI Generation
+## AI Generation vs Synthesized Demo
 
-DashCraft includes two generation modes:
-
-1. **AI Generated**: Uses the OpenAI API (via a secure backend proxy) to generate dashboard layouts from natural language prompts. The API key is never exposed to the frontend.
-2. **Synthesized Demo**: An offline fallback that generates demo dashboard data locally without calling any external API. This is clearly labeled as "Synthesized Demo" in the interface.
+1. **AI Generated**: Connected to the OpenAI API through a Node.js backend proxy. Generates customized widget layouts, metrics, and chart series based on user prompts. API credentials remain securely on the server.
+2. **Synthesized Demo**: Local deterministic generation fallback that constructs realistic mock dashboard data directly in the browser when offline or when no API key is configured. Clearly labeled as "Synthesized Demo" to ensure transparency.
 
 ## Technology Stack
 
-- React 19
-- TypeScript
-- Vite
-- Tailwind CSS 4
-- React Router
-- Node.js (backend API proxy)
-- OpenAI API
-- LocalStorage
-- SVG-based visualization rendering
+- **Frontend Framework**: React 19, TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS 4
+- **Routing**: React Router (SPA with client-side routing and pre-baked entity metadata)
+- **Backend**: Node.js API server for secure OpenAI proxy
+- **Visualization**: Custom SVG-based vector rendering
+- **Storage**: Browser LocalStorage API
 
-## Template Categories
+## Creator Information
 
-- SaaS Revenue & MRR
-- E-Commerce Analytics
-- DevOps & Infrastructure
-- Marketing & Growth
-- Product Analytics
-- Finance & Accounting
-- Customer Support
-
-## Creator
-
-Aayan Kumar
-- Role: Cloud Computing / Web Development / UI/UX Design
-- Education: B.Tech Computer Science & Engineering candidate at Lovely Professional University
-- LinkedIn: https://www.linkedin.com/in/aayzen/
-- GitHub: https://github.com/AayZen
-- Portfolio: https://aayan-kumar-portfolio.vercel.app/
+- **Creator**: Aayan Kumar
+- **Role**: Cloud Computing / Web Development / UI/UX Design
+- **Education**: B.Tech Computer Science & Engineering candidate at Lovely Professional University
+- **Portfolio**: https://aayan-kumar-portfolio.vercel.app/
+- **LinkedIn**: https://www.linkedin.com/in/aayzen/
+- **GitHub**: https://github.com/AayZen

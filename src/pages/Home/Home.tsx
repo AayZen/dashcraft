@@ -101,11 +101,18 @@ const Home: React.FC = () => {
                 What is DashCraft?
               </h2>
               <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                DashCraft is a visual dashboard creation studio for building polished analytics dashboards without fighting with code or rigid templates. It provides a 3-zone studio layout with a widget library, interactive canvas, and property inspector — all running in your browser with local persistence.
+                DashCraft is a visual dashboard creation studio for building polished analytics dashboards without fighting with code or rigid templates. Created by Aayan Kumar, it provides a 3-zone studio layout with a widget library, interactive canvas, and property inspector — all running in your browser with local persistence.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">Who created DashCraft?</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  DashCraft was designed and developed by Aayan Kumar, specializing in Cloud Computing, Web Development, and UI/UX Design. It is an independent open-source analytics dashboard creation web application hosted on GitHub.
+                </p>
+              </div>
+
               <div>
                 <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">How does AI dashboard generation work?</h3>
                 <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
@@ -131,13 +138,6 @@ const Home: React.FC = () => {
                 <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">Is my data private?</h3>
                 <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   All dashboards, widget configurations, and customizations persist directly inside your browser&apos;s LocalStorage. DashCraft does not upload dashboard data to any server. The only external call is the optional AI generation request, which goes through a secure backend proxy that never exposes API keys to the frontend.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">Can I present a dashboard?</h3>
-                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Switch to presentation mode with one click to view your dashboard in a clean, full-screen layout. Presentation mode supports desktop, tablet, and mobile viewport simulations, theme switching, and JSON export for sharing dashboard schemas.
                 </p>
               </div>
 
