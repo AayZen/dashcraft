@@ -17,22 +17,22 @@ DashCraft is a visual dashboard creation studio for building polished analytics 
 
 ### Home Page
 
-> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e3fc72d5-5206-4686-9296-548ceb5d63ca" />
+> <img width="1915" height="925" alt="image" src="https://github.com/user-attachments/assets/d544ca43-e61d-4842-b42d-6114472864bf" />
+
 
 ### Dashboard Builder
 
-> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/08051182-6b6d-428d-93fb-3412f433ba8e" />
+> <img width="1919" height="925" alt="image" src="https://github.com/user-attachments/assets/d9b29bb2-1cc8-4215-98e6-32a1601cb44e" />
 
 
 ### AI Dashboard Generation
 
-> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c279e14d-a0d2-4b7c-9fd7-7b6d3b02536e" />
+> <img width="1917" height="925" alt="image" src="https://github.com/user-attachments/assets/1856a369-6440-4b87-8b5d-7695638ef73a" />
 
 
 ### Preview / Presentation Mode
 
-> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c41811d6-c407-43b6-bb5a-681967825a91" />
-
+> <img width="1918" height="925" alt="image" src="https://github.com/user-attachments/assets/66d2c561-2e8f-4a41-b330-0444920f6a22" />
 
 ---
 
