@@ -56,12 +56,16 @@ export const BuilderShell: React.FC<BuilderShellProps> = ({ dashboardId }) => {
 
   const handleSelectWidget = (id: string | null) => {
     setSelectedWidgetId(id);
+    // On tablet & mobile, auto-switch to Inspector view when a widget is selected
+    if (id && typeof window !== "undefined" && window.innerWidth < 1024) {
+      setMobilePane("inspector");
+    }
   };
 
   const handleAddWidget = (kind: WidgetKind) => {
     addWidget(kind);
     toast.success(`Added ${kind.toUpperCase()} widget`);
-    if (window.innerWidth < 1024) {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
       setMobilePane("canvas");
     }
   };
@@ -81,7 +85,9 @@ export const BuilderShell: React.FC<BuilderShellProps> = ({ dashboardId }) => {
         label: "Undo",
         onClick: () => undo(),
       });
-      if (window.innerWidth < 1024) setMobilePane("canvas");
+      if (typeof window !== "undefined" && window.innerWidth < 1024) {
+        setMobilePane("canvas");
+      }
     },
     [deleteWidget, toast, undo]
   );
@@ -207,28 +213,29 @@ export const BuilderShell: React.FC<BuilderShellProps> = ({ dashboardId }) => {
         }}
       />
 
-      {/* Workspace Area with smooth transitions */}
-      <div className="flex flex-1 overflow-hidden relative">
+      {/* Workspace Area: 3-zone desktop layout | seamless responsive tabs on tablet & mobile */}
+      <div className="flex flex-1 overflow-hidden relative min-w-0">
         {/* Left: Widget Library */}
         {!isPreview && (
           <div
-            className={`shrink-0 z-20 transition-all duration-200 ${
+            className={`shrink-0 z-20 transition-all duration-150 motion-reduce:transition-none ${
               mobilePane === "library"
-                ? "flex fixed inset-0 top-14 pb-14 bg-white dark:bg-zinc-950 w-full z-30 animate-fade-in"
-                : "hidden lg:flex"
+                ? "flex flex-1 w-full h-full justify-center overflow-y-auto bg-white dark:bg-zinc-950 animate-fade-in motion-reduce:animate-none"
+                : "hidden lg:flex h-full"
             }`}
           >
             <WidgetLibrary
               onAddWidget={handleAddWidget}
               onOpenAI={() => setIsAIModalOpen(true)}
+              onBackToCanvas={() => setMobilePane("canvas")}
             />
           </div>
         )}
 
         {/* Center: Canvas */}
         <div
-          className={`flex-1 flex overflow-hidden min-w-0 transition-all duration-200 ${
-            mobilePane !== "canvas" && !isPreview ? "hidden lg:flex" : "flex"
+          className={`flex-1 flex overflow-hidden min-w-0 transition-all duration-150 motion-reduce:transition-none ${
+            mobilePane !== "canvas" && !isPreview ? "hidden lg:flex" : "flex h-full"
           }`}
         >
           <DashboardCanvas
@@ -249,10 +256,10 @@ export const BuilderShell: React.FC<BuilderShellProps> = ({ dashboardId }) => {
         {/* Right: Inspector */}
         {!isPreview && (
           <div
-            className={`shrink-0 z-20 transition-all duration-200 ${
+            className={`shrink-0 z-20 transition-all duration-150 motion-reduce:transition-none ${
               mobilePane === "inspector"
-                ? "flex fixed inset-0 top-14 pb-14 bg-white dark:bg-zinc-950 w-full z-30 justify-center animate-fade-in"
-                : "hidden lg:flex"
+                ? "flex flex-1 w-full h-full justify-center overflow-y-auto bg-white dark:bg-zinc-950 animate-fade-in motion-reduce:animate-none"
+                : "hidden lg:flex h-full"
             }`}
           >
             <WidgetInspector
@@ -264,6 +271,8 @@ export const BuilderShell: React.FC<BuilderShellProps> = ({ dashboardId }) => {
               onMoveUpWidget={(id) => reorderWidget(id, "up")}
               onMoveDownWidget={(id) => reorderWidget(id, "down")}
               onUpdateDashboardSettings={updateSettings}
+              onBackToCanvas={() => setMobilePane("canvas")}
+              onOpenLibrary={() => setMobilePane("library")}
             />
           </div>
         )}
@@ -271,12 +280,15 @@ export const BuilderShell: React.FC<BuilderShellProps> = ({ dashboardId }) => {
 
       {/* Mobile/Tablet Bottom Navigation Bar */}
       {!isPreview && (
-        <nav className="lg:hidden flex h-14 w-full items-center justify-around border-t bg-white/95 dark:bg-zinc-950/95 border-zinc-200 dark:border-zinc-800 z-30 px-2 backdrop-blur-sm">
+        <nav
+          aria-label="Workspace Navigation"
+          className="lg:hidden flex h-14 w-full items-center justify-around border-t bg-white/95 dark:bg-zinc-950/95 border-zinc-200 dark:border-zinc-800 z-30 px-3 backdrop-blur-sm shadow-md shrink-0"
+        >
           <button
             onClick={() => setMobilePane("canvas")}
-            className={`flex flex-col items-center justify-center gap-1 flex-1 py-1 text-xs font-medium active:scale-95 transition-all duration-150 ${
+            className={`flex flex-col items-center justify-center gap-1 flex-1 py-1.5 text-xs font-medium rounded-lg active:scale-95 transition-all duration-150 motion-reduce:transition-none ${
               mobilePane === "canvas"
-                ? "text-cyan-600 dark:text-cyan-400 font-semibold"
+                ? "text-cyan-600 dark:text-cyan-400 font-semibold bg-cyan-50/60 dark:bg-cyan-950/40"
                 : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
             }`}
           >
@@ -286,9 +298,9 @@ export const BuilderShell: React.FC<BuilderShellProps> = ({ dashboardId }) => {
 
           <button
             onClick={() => setMobilePane("library")}
-            className={`flex flex-col items-center justify-center gap-1 flex-1 py-1 text-xs font-medium active:scale-95 transition-all duration-150 ${
+            className={`flex flex-col items-center justify-center gap-1 flex-1 py-1.5 text-xs font-medium rounded-lg active:scale-95 transition-all duration-150 motion-reduce:transition-none ${
               mobilePane === "library"
-                ? "text-cyan-600 dark:text-cyan-400 font-semibold"
+                ? "text-cyan-600 dark:text-cyan-400 font-semibold bg-cyan-50/60 dark:bg-cyan-950/40"
                 : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
             }`}
           >
@@ -298,14 +310,22 @@ export const BuilderShell: React.FC<BuilderShellProps> = ({ dashboardId }) => {
 
           <button
             onClick={() => setMobilePane("inspector")}
-            className={`flex flex-col items-center justify-center gap-1 flex-1 py-1 text-xs font-medium active:scale-95 transition-all duration-150 ${
+            className={`flex flex-col items-center justify-center gap-1 flex-1 py-1.5 text-xs font-medium rounded-lg active:scale-95 transition-all duration-150 motion-reduce:transition-none ${
               mobilePane === "inspector"
-                ? "text-cyan-600 dark:text-cyan-400 font-semibold"
+                ? "text-cyan-600 dark:text-cyan-400 font-semibold bg-cyan-50/60 dark:bg-cyan-950/40"
                 : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
             }`}
           >
-            <Sliders className="h-4 w-4" />
-            <span>Inspector {selectedWidget && "•"}</span>
+            <div className="relative">
+              <Sliders className="h-4 w-4" />
+              {selectedWidget && (
+                <span
+                  className="absolute -top-1 -right-1.5 h-2 w-2 rounded-full bg-cyan-500 ring-2 ring-white dark:ring-zinc-950 animate-pulse motion-reduce:animate-none"
+                  title="Widget selected"
+                />
+              )}
+            </div>
+            <span>Inspector</span>
           </button>
         </nav>
       )}

@@ -19,6 +19,7 @@ import {
   Search,
   Plus,
   Sparkles,
+  ArrowLeft,
 } from "lucide-react";
 import type { WidgetCategory, WidgetKind } from "../../types";
 import { WIDGET_LIBRARY } from "../../constants/theme";
@@ -40,14 +41,20 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Filter,
   Activity,
   ListFilter,
+  ArrowLeft,
 };
 
 interface WidgetLibraryProps {
   onAddWidget: (kind: WidgetKind) => void;
   onOpenAI: () => void;
+  onBackToCanvas?: () => void;
 }
 
-export const WidgetLibrary: React.FC<WidgetLibraryProps> = ({ onAddWidget, onOpenAI }) => {
+export const WidgetLibrary: React.FC<WidgetLibraryProps> = ({
+  onAddWidget,
+  onOpenAI,
+  onBackToCanvas,
+}) => {
   const [activeCategory, setActiveCategory] = useState<WidgetCategory>("analytics");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -60,7 +67,23 @@ export const WidgetLibrary: React.FC<WidgetLibraryProps> = ({ onAddWidget, onOpe
   });
 
   return (
-    <aside className="flex flex-col h-full w-72 shrink-0 border-r bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800/80 select-none">
+    <aside className="flex flex-col h-full w-full lg:w-72 max-w-lg lg:max-w-none shrink-0 border-r lg:border-r border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-950 select-none">
+      {/* Mobile/Tablet Back to Canvas Header */}
+      {onBackToCanvas && (
+        <div className="lg:hidden flex items-center justify-between p-3 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-900/60">
+          <button
+            onClick={onBackToCanvas}
+            className="flex items-center gap-1.5 text-xs font-semibold text-cyan-600 dark:text-cyan-400 active:scale-95 transition-all"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            <span>Back to Canvas</span>
+          </button>
+          <span className="text-[11px] font-bold text-zinc-500 uppercase tracking-wider">
+            Widgets
+          </span>
+        </div>
+      )}
+
       {/* Header */}
       <div className="p-4 border-b border-zinc-200 dark:border-zinc-800/60">
         <div className="flex items-center justify-between">

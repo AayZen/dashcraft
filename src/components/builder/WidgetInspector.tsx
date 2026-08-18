@@ -19,6 +19,8 @@ import {
   Sun,
   Moon,
   Laptop,
+  ArrowLeft,
+  PlusCircle,
 } from "lucide-react";
 import type {
   Widget,
@@ -40,6 +42,8 @@ interface WidgetInspectorProps {
   onMoveUpWidget: (id: string) => void;
   onMoveDownWidget: (id: string) => void;
   onUpdateDashboardSettings: (updates: Partial<DashboardSettings>) => void;
+  onBackToCanvas?: () => void;
+  onOpenLibrary?: () => void;
 }
 
 const WIDGET_KINDS: { kind: WidgetKind; label: string; icon: React.ElementType }[] = [
@@ -69,12 +73,30 @@ export const WidgetInspector: React.FC<WidgetInspectorProps> = ({
   onMoveUpWidget,
   onMoveDownWidget,
   onUpdateDashboardSettings,
+  onBackToCanvas,
+  onOpenLibrary,
 }) => {
   const { theme, setTheme } = useTheme();
 
   if (!widget) {
     return (
-      <aside className="flex flex-col h-full w-80 shrink-0 border-l bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800/80 p-4 select-none overflow-y-auto animate-fade-in">
+      <aside className="flex flex-col h-full w-full lg:w-80 max-w-lg lg:max-w-none shrink-0 border-l lg:border-l border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-950 p-4 select-none overflow-y-auto animate-fade-in">
+        {/* Mobile/Tablet Back to Canvas Header */}
+        {onBackToCanvas && (
+          <div className="lg:hidden flex items-center justify-between pb-3 mb-3 border-b border-zinc-200 dark:border-zinc-800">
+            <button
+              onClick={onBackToCanvas}
+              className="flex items-center gap-1.5 text-xs font-semibold text-cyan-600 dark:text-cyan-400 active:scale-95 transition-all"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              <span>Back to Canvas</span>
+            </button>
+            <span className="text-[11px] font-bold text-zinc-500 uppercase tracking-wider">
+              Dashboard Settings
+            </span>
+          </div>
+        )}
+
         <div className="flex items-center justify-between pb-3 border-b border-zinc-200 dark:border-zinc-800/60">
           <div className="flex items-center gap-2">
             <Sliders className="h-4 w-4 text-cyan-500" />
@@ -166,15 +188,37 @@ export const WidgetInspector: React.FC<WidgetInspectorProps> = ({
           </div>
         </div>
 
-        {/* Info Hint */}
-        <div className="mt-8 p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/40 text-center">
-          <Layers className="h-5 w-5 text-zinc-400 mx-auto mb-1" />
-          <p className="text-xs font-medium text-zinc-700 dark:text-zinc-300">
+        {/* Info Hint with Action Buttons */}
+        <div className="mt-6 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-900/40 text-center">
+          <Layers className="h-6 w-6 text-zinc-400 mx-auto mb-2" />
+          <p className="text-xs font-semibold text-zinc-800 dark:text-zinc-200">
             No Widget Selected
           </p>
-          <p className="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5">
-            Click any widget on the canvas to inspect and edit its properties, metrics, and chart datasets.
+          <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">
+            Tap any widget on the canvas to customize its metrics, chart series, and appearance.
           </p>
+
+          <div className="mt-4 flex flex-col gap-2">
+            {onBackToCanvas && (
+              <button
+                onClick={onBackToCanvas}
+                className="flex items-center justify-center gap-1.5 w-full rounded-lg bg-zinc-900 dark:bg-zinc-100 py-2 text-xs font-semibold text-white dark:text-zinc-950 active:scale-95 transition-all shadow-xs"
+              >
+                <ArrowLeft className="h-3.5 w-3.5" />
+                <span>Return to Canvas</span>
+              </button>
+            )}
+
+            {onOpenLibrary && (
+              <button
+                onClick={onOpenLibrary}
+                className="flex items-center justify-center gap-1.5 w-full rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-800 py-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-750 active:scale-95 transition-all"
+              >
+                <PlusCircle className="h-3.5 w-3.5 text-cyan-500" />
+                <span>Browse Widget Library</span>
+              </button>
+            )}
+          </div>
         </div>
       </aside>
     );
@@ -216,8 +260,24 @@ export const WidgetInspector: React.FC<WidgetInspectorProps> = ({
   return (
     <aside
       key={widget.id}
-      className="flex flex-col h-full w-80 shrink-0 border-l bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800/80 p-4 select-none overflow-y-auto animate-fade-in"
+      className="flex flex-col h-full w-full lg:w-80 max-w-lg lg:max-w-none shrink-0 border-l lg:border-l border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-950 p-4 select-none overflow-y-auto animate-fade-in"
     >
+      {/* Mobile/Tablet Back to Canvas Header */}
+      {onBackToCanvas && (
+        <div className="lg:hidden flex items-center justify-between pb-3 mb-3 border-b border-zinc-200 dark:border-zinc-800">
+          <button
+            onClick={onBackToCanvas}
+            className="flex items-center gap-1.5 text-xs font-semibold text-cyan-600 dark:text-cyan-400 active:scale-95 transition-all"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            <span>Back to Canvas</span>
+          </button>
+          <span className="text-[11px] font-bold text-zinc-500 uppercase tracking-wider">
+            Editing: {widget.kind}
+          </span>
+        </div>
+      )}
+
       {/* Header & Quick Action Buttons */}
       <div className="flex items-center justify-between pb-3 border-b border-zinc-200 dark:border-zinc-800/60">
         <div className="flex items-center gap-2 min-w-0">

@@ -31,23 +31,19 @@ export const KPIWidget: React.FC<{ widget: Widget }> = ({ widget }) => {
 
   return (
     <div className="flex flex-col justify-between h-full min-h-[96px] w-full min-w-0">
-      {/* Top row: Title and Trend badge */}
-      <div className="flex items-start justify-between gap-2 min-w-0">
-        <div className="min-w-0 flex-1">
-          <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400 truncate">
-            {widget.title}
-          </p>
-          <div className="mt-1 flex items-baseline gap-2 min-w-0">
-            <span className="text-2xl sm:text-3xl font-bold tracking-tight tabular-nums text-zinc-900 dark:text-zinc-50 truncate">
-              {widget.metric}
-            </span>
-          </div>
-        </div>
+      {/* Top row: Title on left, Trend badge on right */}
+      <div className="flex items-center justify-between gap-2 min-w-0">
+        <p
+          className="text-xs font-medium text-zinc-500 dark:text-zinc-400 truncate flex-1 min-w-0"
+          title={widget.title}
+        >
+          {widget.title}
+        </p>
 
         {/* Trend badge */}
         {widget.change && (
           <div
-            className={`inline-flex items-center gap-1 rounded-md px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-[11px] font-semibold border shrink-0 ${
+            className={`inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 text-[10px] sm:text-[11px] font-semibold border shrink-0 ${
               isNeutral
                 ? "bg-zinc-100 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-700"
                 : isPositive
@@ -67,14 +63,27 @@ export const KPIWidget: React.FC<{ widget: Widget }> = ({ widget }) => {
         )}
       </div>
 
+      {/* Primary KPI Metric - Full width dedicated row for maximum legibility */}
+      <div className="my-1.5 sm:my-2 flex items-baseline gap-2 min-w-0">
+        <span
+          className="text-2xl @[180px]:text-3xl font-bold tracking-tight tabular-nums text-zinc-900 dark:text-zinc-50 leading-none break-words min-w-0"
+          title={widget.metric}
+        >
+          {widget.metric}
+        </span>
+      </div>
+
       {/* Bottom row: Subtitle/Period and Responsive SVG Sparkline */}
-      <div className="mt-3 flex items-end justify-between gap-2 pt-2 border-t border-zinc-100 dark:border-zinc-800/40 min-w-0">
-        <span className="text-[11px] text-zinc-400 dark:text-zinc-500 truncate flex-1 min-w-0">
+      <div className="mt-auto flex items-end justify-between gap-2 pt-2 border-t border-zinc-100 dark:border-zinc-800/40 min-w-0">
+        <span
+          className="text-[11px] text-zinc-400 dark:text-zinc-500 truncate flex-1 min-w-0"
+          title={widget.changePeriod || widget.subtitle || "Recent period"}
+        >
           {widget.changePeriod || widget.subtitle || "Recent period"}
         </span>
 
         {/* Fluid SVG Sparkline */}
-        <div className="h-8 sm:h-9 w-24 sm:w-28 max-w-[45%] shrink-0 flex items-center justify-end">
+        <div className="h-7 sm:h-8 w-20 sm:w-24 max-w-[45%] shrink-0 flex items-center justify-end">
           <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-full overflow-visible">
             <defs>
               <linearGradient id={`grad-${widget.id}`} x1="0%" y1="0%" x2="0%" y2="100%">
