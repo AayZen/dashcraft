@@ -1,6 +1,6 @@
 # DashCraft — Visual Dashboard Creation Studio
 
-DashCraft is a visual dashboard creation studio for building polished analytics dashboards without fighting with code or rigid templates. Create, customize, save, and present responsive dashboards with editable widgets, templates, and AI-assisted generation.
+DashCraft is a visual dashboard creation studio and visual dashboard builder by Aayan Kumar for creating, customizing, and presenting analytics dashboards in the browser.
 
 **Live:** [https://dashcraft-five.vercel.app/](https://dashcraft-five.vercel.app/)
 

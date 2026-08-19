@@ -37,7 +37,7 @@ export const About: React.FC = () => {
             </h1>
 
             <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-              DashCraft is a visual dashboard creation studio built by Aayan Kumar using React, TypeScript, and modern web technologies. It empowers developers and creators to design, customize, and present responsive analytics dashboards without rigid templates.
+              DashCraft is a visual dashboard creation studio and visual dashboard builder by Aayan Kumar for creating, customizing, and presenting analytics dashboards in the browser.
             </p>
           </div>
         </section>
@@ -141,7 +141,7 @@ export const About: React.FC = () => {
                   Project Repository &amp; Source Code
                 </h4>
                 <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
-                  DashCraft is open source. View the complete codebase, architecture, and issue tracker on GitHub.
+                  DashCraft&apos;s source code is publicly available on GitHub. View the complete codebase, architecture, and issue tracker on GitHub.
                 </p>
               </div>
               <a

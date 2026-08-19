@@ -1,6 +1,6 @@
 # DashCraft — Visual Dashboard Creation Studio
 
-> DashCraft is a visual dashboard creation studio for building polished analytics dashboards without fighting with code or rigid templates. Created by Aayan Kumar.
+> DashCraft is a visual dashboard creation studio and visual dashboard builder by Aayan Kumar for creating, customizing, and presenting analytics dashboards in the browser.
 
 ## Entity & Product Disambiguation
 

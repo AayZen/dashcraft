@@ -37,7 +37,7 @@ export const WEBSITE_ENTITY = {
   alternateName: "DashCraft — Visual Dashboard Creation Studio",
   url: CANONICAL_ORIGIN,
   description:
-    "DashCraft is a visual dashboard creation studio for building polished analytics dashboards without fighting with code or rigid templates.",
+    "DashCraft is a visual dashboard creation studio and visual dashboard builder by Aayan Kumar for creating, customizing, and presenting analytics dashboards in the browser.",
   creator: { "@id": `${CANONICAL_ORIGIN}/#creator` },
   publisher: { "@id": `${CANONICAL_ORIGIN}/#creator` },
   sameAs: [GITHUB_REPO],
@@ -48,13 +48,13 @@ export const SOFTWARE_APPLICATION_ENTITY = {
   "@type": "SoftwareApplication",
   "@id": `${CANONICAL_ORIGIN}/#softwareapplication`,
   name: "DashCraft",
-  alternateName: "DashCraft Dashboard Studio",
+  alternateName: "DashCraft — Visual Dashboard Creation Studio",
   applicationCategory: "DesignApplication",
   applicationSubCategory: "Analytics Dashboard Builder",
   operatingSystem: "Web Browser",
   url: CANONICAL_ORIGIN,
   description:
-    "DashCraft is a visual dashboard creation studio by Aayan Kumar for building polished analytics dashboards with editable widgets, templates, and AI-assisted generation.",
+    "DashCraft is a visual dashboard creation studio and visual dashboard builder by Aayan Kumar for creating, customizing, and presenting analytics dashboards in the browser.",
   creator: { "@id": `${CANONICAL_ORIGIN}/#creator` },
   author: { "@id": `${CANONICAL_ORIGIN}/#creator` },
   isPartOf: { "@id": `${CANONICAL_ORIGIN}/#website` },
@@ -65,7 +65,7 @@ export const SOFTWARE_APPLICATION_ENTITY = {
 export const homeSEO = {
   title: "DashCraft — Visual Dashboard Creation Studio",
   description:
-    "DashCraft is a visual dashboard creation studio for building polished analytics dashboards without fighting with code or rigid templates. Created by Aayan Kumar.",
+    "DashCraft is a visual dashboard creation studio and visual dashboard builder by Aayan Kumar for creating, customizing, and presenting analytics dashboards in the browser.",
   canonicalPath: "/",
   ogType: "website",
   schema: [

@@ -90,61 +90,118 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        {/* Answer-Oriented Content — What is DashCraft? */}
+        {/* Answer-Oriented Content — AI Search Answerability & Product Overview */}
         <section className="py-20 border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-950">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <span className="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
-                About DashCraft
+                Product Knowledge &amp; Q&amp;A
               </span>
               <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mt-2">
-                What is DashCraft?
+                Frequently Asked Questions
               </h2>
               <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                DashCraft is a visual dashboard creation studio for building polished analytics dashboards without fighting with code or rigid templates. Created by Aayan Kumar, it provides a 3-zone studio layout with a widget library, interactive canvas, and property inspector — all running in your browser with local persistence.
+                DashCraft is a visual dashboard creation studio and visual dashboard builder by Aayan Kumar for creating, customizing, and presenting analytics dashboards in the browser.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/40 p-5">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">What is DashCraft?</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  DashCraft is a visual dashboard creation studio and visual dashboard builder by Aayan Kumar for creating, customizing, and presenting analytics dashboards in the browser.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/40 p-5">
                 <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">Who created DashCraft?</h3>
                 <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  DashCraft was designed and developed by Aayan Kumar, specializing in Cloud Computing, Web Development, and UI/UX Design. It is an independent open-source analytics dashboard creation web application hosted on GitHub.
+                  DashCraft was created by Aayan Kumar, specializing in Cloud Computing, Web Development, and UI/UX Design.
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">How does AI dashboard generation work?</h3>
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/40 p-5">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">What does DashCraft do?</h3>
                 <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Describe your dashboard in natural language — for example, &ldquo;Create a SaaS revenue dashboard with MRR, churn, and top accounts.&rdquo; When connected to the OpenAI API through the secure backend proxy, DashCraft generates a structured dashboard layout with KPI cards, charts, and tables. When the API is unavailable, the built-in offline synthesizer creates a demo dashboard locally — clearly labeled as &ldquo;Synthesized Demo&rdquo; rather than &ldquo;AI Generated.&rdquo;
+                  DashCraft enables users to create, customize, and present responsive analytics dashboards directly in the browser with editable widgets, pre-built templates, and AI-assisted generation.
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">Can I customize dashboard widgets?</h3>
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/40 p-5">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">Is DashCraft a dashboard builder?</h3>
                 <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Every widget is fully editable. Change titles, metric values, percentage trends, accent colors, chart data points, and widget sizes directly in the visual editor. The property inspector lets you fine-tune each widget without writing code.
+                  Yes, DashCraft is a visual dashboard builder featuring a 3-zone studio layout with a widget library, an interactive drag-and-drop 12-column grid canvas, and a real-time property inspector.
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">What widget types are supported?</h3>
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/40 p-5">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">What type of dashboards can DashCraft create?</h3>
                 <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  DashCraft includes KPI metric cards with sparkline previews, bar charts, line/spline charts, area charts, donut charts, data tables, progress bars, and gauge widgets. Each widget renders using SVG-based visualization within a responsive 12-column grid layout.
+                  DashCraft creates analytics dashboards for SaaS metrics (MRR, churn, ARR), E-Commerce sales, DevOps cloud infrastructure, Marketing and growth tracking, Product analytics, Finance, and Customer Support.
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">Is my data private?</h3>
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/40 p-5">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">Does DashCraft have AI dashboard generation?</h3>
                 <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  All dashboards, widget configurations, and customizations persist directly inside your browser&apos;s LocalStorage. DashCraft does not upload dashboard data to any server. The only external call is the optional AI generation request, which goes through a secure backend proxy that never exposes API keys to the frontend.
+                  Yes, DashCraft features AI-assisted dashboard generation that turns natural language prompts into complete, structured dashboard layouts with relevant metrics and charts.
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">What technologies power DashCraft?</h3>
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/40 p-5">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">How does DashCraft&apos;s AI generation work?</h3>
                 <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  DashCraft is built with React 19, TypeScript, Vite, Tailwind CSS 4, and React Router. The AI generation backend uses Node.js with the OpenAI SDK. All visualization rendering uses SVG, and data persists in the browser via LocalStorage.
+                  DashCraft connects to the OpenAI API through a secure Node.js backend proxy that keeps API keys on the server. When offline or without API connectivity, a built-in offline synthesizer generates demo dashboards locally, clearly labeled as &ldquo;Synthesized Demo&rdquo; to maintain transparency.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/40 p-5">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">What widgets does DashCraft support?</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  DashCraft supports KPI metric cards with sparklines, vertical bar charts, smooth spline line charts, gradient area charts, donut/pie charts, data tables, percentage progress bars, and circular gauge widgets.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/40 p-5">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">Does DashCraft provide dashboard templates?</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Yes, DashCraft provides ready-to-use starter templates across SaaS Revenue, E-Commerce, DevOps Infrastructure, Marketing &amp; Growth, Product Analytics, Finance &amp; Accounting, and Customer Support.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/40 p-5">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">Is DashCraft open source?</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  DashCraft&apos;s source code is publicly available on GitHub for educational and portfolio demonstration.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/40 p-5">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">Where is DashCraft&apos;s source code?</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  DashCraft&apos;s official source code is hosted on GitHub at{" "}
+                  <a
+                    href="https://github.com/AayZen/dashcraft"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-600 dark:text-cyan-400 underline font-medium hover:text-cyan-500"
+                  >
+                    github.com/AayZen/dashcraft
+                  </a>.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/40 p-5">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">What technologies does DashCraft use?</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  DashCraft is built with React 19, TypeScript, Vite, Tailwind CSS 4, React Router, Node.js (OpenAI proxy server), custom SVG vector visualization, and browser LocalStorage.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/40 p-5 md:col-span-2 lg:col-span-3">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">Is DashCraft&apos;s data stored locally?</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Yes, all user dashboards, widget properties, and layout configurations persist directly in the browser&apos;s LocalStorage. No user dashboard data is sent to external databases or servers.
                 </p>
               </div>
             </div>
